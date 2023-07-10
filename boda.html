@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación matrimonio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+        @font-face {
+            font-family: GraublauWeb;
+            src: url("./Stay_Dreaming.otf") format("opentype");
+        }
+        
+        @font-face {
+            font-family: GraublauWeb;
+            font-weight: bold;
+            src: url("./Stay_Dreaming.otf") format("opentype");
+        }
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            font-family: 'Muli', sans-serif;
+            height: 100vh;
+            width: 100vw;
+            /*background: #cdf0ea;*/
+        }
+        main{
+            /*background-color: white;*/
+            height: 100%;
+            position: relative;
+        }
+        h1{
+            font-family: 'Dancing Script', cursive;
+            font-size:3rem;
+            padding: 6px;
+        }
+        h2{
+            text-align: center;
+            font-family: GraublauWeb;
+            font-size:3rem;
+            padding: 6px;
+            margin-top: 10%;
+        }
+        h2 span{
+            color: goldenrod;
+        }
+        #capa0{
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            background: #82ccb6;
+            z-index: 2;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            background-image: url(aaaaa-removebg-preview.png);
+            background-position: center center;
+            background-repeat: no-repeat;
+        }   
+        .tamano{
+            display: none;
+        }     
+        #capa0 button{
+            position: fixed;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 6px;
+            border: 1px solid white;
+            box-shadow: 1px 1px 1px 1px rgb(235, 224, 229);
+            bottom: 20px;
+            width: 100px;
+            height: 50px;
+        }
+        #capa1{
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            background: white;
+        }
+        #capa1 .cita{            
+            width: 80%;
+            margin: 0 auto;
+            padding: 25px;
+            font-size: 2rem;
+        }
+        #capa1 .cita p{
+            font-size:3rem;
+            font-family: 'Dancing Script';
+            /*font-family:GraublauWeb;*/            
+        }
+        #capa1 .cita legend{
+            font-size:2rem;
+            float: right;
+            padding: 0 30px;
+            font-weight: bold;
+        }
+        #capa1 .cita p span{
+            font-weight: bold;
+            color: rgb(207, 183, 44);
+            font-size:3rem;
+            text-shadow: 1px 1px #000000;
+        }
+        #capa1 #techo{
+            top:0;
+            height: 40%;
+            position: fixed;
+            width: 100%;
+            background-image:url(enrich-purple-shape.svg);
+            background-position: bottom center;
+            transition: 2s ease-in-out all;
+        }
+        #capa1 #techo::before{
+            position: absolute;
+            content: " ";
+            color: rgb(101, 89, 20);
+            font-size:3rem;
+            width: 90%;
+            margin: 5%;
+            height: 10%;
+            border: 10px solid rgb(207, 183, 44);
+            border-bottom:none;
+        }
+        #capa1 #techo::after{
+            background-image: url(euca.png);
+            height: 680px;
+            content: " ";
+            position: absolute;
+            background-position: 0;
+            background-repeat: no-repeat;
+            background-size: contain;
+            top: -120px;
+            transform: rotate(12deg);
+            width: 380px;
+            left: -90px;
+        }
+        #capa1 #centro{
+            height: 60%;
+            width: 100%;
+            top: 30%;
+            position: fixed;
+        }
+        #muneca
+        {
+            background: url(./NOVIA1.png);
+            height: 50%;
+            aspect-ratio: 3/3;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            
+            border: none!important;
+            cursor: pointer;
+        }
+        #capa1 #suelo{
+            height: 40%;
+            bottom: 0;
+            position: fixed;
+            width: 100%;
+            background-image:url(enrich-purple-shape.svg);
+            background-position: top left;
+            transition: 2s ease-in-out all;
+        }
+        #capa1 #suelo::after{
+            background-image: url(euca.png);
+            height: 680px;
+            content: " ";
+            position: absolute;
+            background-position: 0;
+            background-repeat: no-repeat;
+            background-size: contain;
+            bottom: -251px;
+            transform: rotate(12deg) rotate(45deg);
+            width: 380px;
+            right: 30px;
+        }
+        #capa1 #suelo::before{
+            position: absolute;
+            content: " ";
+            color: rgb(101, 89, 20);
+            font-size:3rem;
+            width: 90%;
+            margin: 5%;
+            height: 10%;
+            border: 10px solid rgb(207, 183, 44);
+            border-top:none;
+            bottom: 0;
+        }
+        #muneco
+        {
+            background: url(./NOVIO1.png);
+            height: 50%;
+            aspect-ratio: 3/3;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: 3;
+            border: none!important;
+        }
+        #capa1 #argollas
+        {
+            background: url(./anillos.png);
+            margin: 0 auto;
+            height: 27%;
+            aspect-ratio: 3/3;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: 3;
+            border: none!important;
+        }
+        #capa0 #argollas
+        {
+            background: url(./anillos.png);
+            margin: 0 auto;
+            height: 5%;
+            aspect-ratio: 3/3;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: 3;
+            border: none!important;
+        }
+        #capa0 .izq{
+            float: left;
+            text-align: left;
+            width: 200px;
+            font-size:3rem;
+        }
+        #capa0 .der{
+            float: right;
+            text-align: right;
+            width: 200px;
+            font-size:3rem;
+        }
+
+        #capa2{
+            background: white;
+        }
+        #capa2 #techo h1, #techo h2, #techo h3{
+            text-align: center;
+            margin: 20px auto;
+        }
+
+
+        #capa2 #techo{
+            top:0;
+            height: 45%;
+            position: fixed;
+            width: 100%;
+            background-image:url(enrich-purple-shape.svg);
+            background-position: bottom center;
+        }
+        #capa2 h1, h2{
+            font-family: 'Dancing Script', cursive;
+            text-align: center;
+        }
+        #capa2 h1{
+            font-size:3rem;
+        }
+        #capa2 h2{
+            font-size:3rem;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 100;
+        }
+        #capa2 #centro{
+            height: 90%;
+            width: 90%;
+            top: 5%;
+            left: 5%;
+            position: fixed;
+        }
+        #muneca
+        {
+            background: url(./NOVIA1.png);
+            height: 50%;
+            aspect-ratio: 3/3;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            
+            border: none!important;
+            cursor: pointer;
+        }
+        #capa2 #suelo{
+            height: 45%;
+            bottom: 0;
+            position: fixed;
+            width: 100%;
+            background-image:url(enrich-purple-shape.svg);
+            background-position: top center;
+        }
+        #capa2 #suelo::before{
+            background-image: url(euca.png);
+            height: 680px;
+            content: " ";
+            position: absolute;
+            background-position: 0;
+            background-repeat: no-repeat;
+            background-size: contain;
+            bottom: -231px;
+            transform: rotate(12deg) rotate(-100deg);
+            width: 450px;
+            left: 30px;
+        }
+        #capa2 #suelo::after{
+            background-image: url(euca.png);
+            height: 680px;
+            content: " ";
+            position: absolute;
+            background-position: 0;
+            background-repeat: no-repeat;
+            background-size: contain;
+            bottom: -251px;
+            transform: rotate(12deg) rotate(45deg);
+            width: 380px;
+            right: 30px;
+        }
+
+        #capa2 #argollas
+        {
+            background: url(./anillos.png);
+            margin: 0 auto;
+            height: 12%;
+            aspect-ratio: 3/3;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: 3;
+            border: none!important;
+        }
+        .flexible{
+            display: flex;
+            flex-direction: row;
+            width: 50%;
+            margin: 0 auto;
+            align-self: center;
+            justify-content: space-around;
+            align-items: center;
+            font-size:3rem;
+        }
+        .textCentral{
+            font-size:3rem;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .textCentral span{
+            font-size:3rem;
+            display: block;
+            font-family: sans-serif;
+            font-family: 'Dancing Script', cursive;
+            font-weight: bold;
+        }
+        .flexible{
+            font-family: 'Dancing Script', cursive;
+            font-size:3rem;
+        }
+        .hora{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size:3rem;
+            text-align: center;
+            margin: 10px;
+        }
+        .ceremonia{
+            text-align: center;
+            margin-bottom: 100px;
+        }
+        .ceremonia span{
+            font-family: 'Dancing Script', cursive;
+            font-size:3rem;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            align-items: center;
+        }
+        .ceremonia span figure{
+            background: url(map.png);
+            height: 40px;
+            width: 40px;
+            background-size: contain;
+            border-radius: 20px;
+            background-repeat: no-repeat;
+            box-shadow: inset 0 0 2px 2px white;
+        }
+        #capa2 #centro{
+            background-color: rgba(255, 255, 255, .15);
+            backdrop-filter: blur(5px);
+            border-radius: 180px;
+            border: 2px solid white;
+            box-shadow: 1px 1px gold;
+            border-right: none;
+            border-bottom: none;
+            padding: 0 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        #capa0, #capa1, #capa2, #capa3{
+            transition:  1s linear all;
+        }
+
+        #capa3 #techo{
+            top:0;
+            height: 45%;
+            position: fixed;
+            width: 100%;
+            background-image:url(enrich-purple-shape.svg);
+            background-position: bottom center;
+        }
+        #capa3 h1, h2{
+            font-family: 'Dancing Script', cursive;
+            text-align: center;
+        }
+        #capa3 h1{
+            font-size:3rem;
+        }
+        #capa3 h2{
+            font-size:3rem;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 100;
+        }
+        #capa3 #centro{
+            height: 90%;
+            width: 90%;
+            top: 5%;
+            left: 5%;
+            position: fixed;
+        }
+        #capa3 #suelo{
+            height: 45%;
+            bottom: 0;
+            position: fixed;
+            width: 100%;
+            background-image:url(enrich-purple-shape.svg);
+            background-position: top center;
+        }
+        #capa3 #suelo::before{
+            background-image: url(euca.png);
+            height: 680px;
+            content: " ";
+            position: absolute;
+            background-position: 0;
+            background-repeat: no-repeat;
+            background-size: contain;
+            bottom: -231px;
+            transform: rotate(12deg) rotate(-100deg);
+            width: 450px;
+            left: 30px;
+        }
+        #capa3 #suelo::after{
+            background-image: url(euca.png);
+            height: 680px;
+            content: " ";
+            position: absolute;
+            background-position: 0;
+            background-repeat: no-repeat;
+            background-size: contain;
+            bottom: -251px;
+            transform: rotate(12deg) rotate(45deg);
+            width: 380px;
+            right: 30px;
+        }
+
+        #capa3 #argollas
+        {
+            background: url(./anillos.png);
+            margin: 0 auto;
+            height: 12%;
+            aspect-ratio: 3/3;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            z-index: 3;
+            border: none!important;
+        }
+
+        #botones{
+            position: fixed;
+            bottom: 20px;
+            text-align: center;
+            margin: 0 35%;
+            width: 25%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: rgba(255, 255, 255, .15);
+            backdrop-filter: blur(5px);
+            height: 100px;
+            border: 2px dashed white;
+            border-radius: 5px;
+            z-index: 99;
+        }
+        #botones >li{
+            width: 40px;
+            height: 60px;
+            list-style: none;
+            cursor: pointer;
+            background-repeat: no-repeat!important;
+        }
+        #bcap1{
+            background: url("a.png");
+            background-position: center;
+            background-size: contain;
+        }
+        #bcap2{
+            background: url("c.png");
+            background-position: center;
+            background-size: contain;
+        }
+        #bcap3{
+            background: url("b.png");
+            background-position: center;
+            background-size: contain;
+        }
+        #bcap4{
+            background: url("d.png");
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }        
+        #capa3 #argollas{
+            width: 70px;
+        }
+        #capa3 h1 {
+            font-size:3rem;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            gap: 20px;
+        }
+        #capa3 .textCentral{
+            font-size:1.5rem;
+            text-align: left;
+            width: 80%;
+            margin: 0 auto;
+            padding: 30px;
+        }
+
+        #capa3 ul{
+            
+        }
+        #capa3 >li{
+            overflow: visible;
+            list-style: disc outside;
+            display: list-item;
+            margin-left: 1rem;
+        }
+        .hora span{
+            font-family: 'Dancing Script', cursive;
+            font-weight: bolder;
+            font-size:3rem;
+            color: goldenrod;
+        }
+        .vestuario{
+            font-size:1.5rem;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        #capa3 .flexible{
+            display: flex;
+            flex-direction: column;
+            margin: 0 auto;
+            justify-content: space-around;
+            align-items: center;
+            font-size:3rem;
+            width: 100%;
+        }
+        #capa3 .ceremonia figure{
+            background: url(map.png);
+            height: 60px;
+            width: 60px;
+            background-size: contain;
+            border-radius: 30px;
+            background-repeat: no-repeat;
+            box-shadow: inset 0 0 2px 2px white;
+            text-align: center;
+            margin: 20px auto;
+            border: 1px solid gold;
+        }
+        @media only screen and (max-width: 780px) {
+            #capa1, #capa2, #capa3, #capa4{
+                font-size:1.3rem!important;
+            }
+            * { font-size:1.3rem!important;
+            }
+            #centro .cita>*{
+                font-size: 2rem!important;
+            }
+            #capa1 .cita p span {
+                font-size: 2rem!important;
+            }
+        }
+        @media only screen and (max-width: 600px) {
+            #capa1, #capa2, #capa3, #capa4{
+                font-size:1rem!important;
+            }
+            * { font-size:1rem!important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="capa tamano" id="capa3">
+            <h1>Miguel Angel <b>  &  </b> Katherinne</h1>
+            <div id="techo">               
+            </div>
+            <div id="suelo">
+            </div>
+            <div id="centro">
+                <h2>¡Ven a festejar con nosotros!</h2>     
+                <br>
+                <div class="vestuario">
+                    <div>
+                        <b>
+                            Vestuario femenino:
+                        </b>
+                        <legend>
+                            Ellas muy lindas, zapato corrido o tenis
+                        </legend>
+                    </div>
+                    <div>
+                        <b>
+                            Vestuario masculino:
+                        </b>
+                        <legend>
+                            Ellos muy guapos
+                        </legend>
+                    </div>                    
+                </div>           
+            </br>
+                <div class="textCentral"><b> Sigue las recomendaciones a continuación: </b></br>
+                    <ul>
+                        <li>Celebración al aire libre</li>                       
+                        <li>Asistir en el horario enunciado</li>
+                        <li>Ir únicamente con las personas que se indiquen en la invitación </li>
+                        <li>Ubica tu mesa al llegar al evento</li>
+                        <li>Los baños van a tener separación para hombres y mujeres</li>
+                        <li>El uso de los baños debe ser adecuado, no arrojar objetos como papel dentro del sanitario, ya que este usa el sistema de microorganismos vivos. (Pozos sépticos)</li>
+                        <li>Ir con la mejor actitud</li>
+                    </ul>
+                </div>
+
+                    <div class="flexible">
+                        <div><b>Por favor</b> confirmar asistencia</div>
+                        <div>3187943935 - 3103081769 - 3115520250</div>
+                    </div>
+                    <br><br>
+                    <div class="hora">Finca la Negrita</div>
+                    <div class="ceremonia">Ubicación GPS, da click en el icono:
+                        <br>
+                        <a href="https://goo.gl/maps/zmrvP3YYCBdtrT3e9" target="_blank"><figure></figure></a>
+                        <span>Te esperamos</span>
+                    </div>
+            </div>
+        </div>            
+        <div class="capa tamano" id="capa2">
+            <div id="techo">               
+            </div>
+            <div id="suelo">
+            </div>
+            <div id="centro">
+                <h2>¡Nos casamos!</h2>                
+                <h1>Miguel Ángel y Katherinne</h1>
+                <figure id="argollas"></figure>                    
+                    <p class="textCentral">Con la bendición de Dios y en compañía de nuestros padres tenemos el gusto de invitarlo(s)
+                    <span>a nuestro matrimonio</span> </p>
+                    <div class="flexible">
+                        <div>Agosto</div>
+                        <div><b>05</b></div>
+                        <div>2023</div>
+                    </div>
+                    <div class="hora"> 4:00 PM
+                        <br>
+                        <span>Lluvia de sobres</span> 
+                    </div>
+                    
+                    <div class="ceremonia">CEREMONIA RELIGIOSA Y RECEPCIÓN
+                        <span>Finca la Negrita</span><br><small>Vereda las Mercedes Villavicencio - km7 vía Acacias</small>
+                    </div>
+            </div>
+        </div>    
+        <div class="capa tamano" id="capa1">
+            <div id="techo">               
+                
+            </div>
+            <div id="suelo">
+
+            </div>
+            <div id="centro">
+                <div class="cita">
+                    <p>El <span>amor</span> es paciente, es bondadoso, el amor no es envidioso, ni jactancioso, ni orgulloso, no se comporta con rudeza, no es egoísta, no se enoja fácilmente, no guarda rencor.</p><br>
+                    <legend>1ª Corintios 13,4-5</legend>
+                </div>
+                <figure id="argollas"></figure>
+            </div>            
+        </div>
+        <div class="capa" id="capa0">
+            <h1 class="izq">M </h1>
+                <figure id="argollas"></figure>  
+            <h1 class="der">K</h1>
+        </div>        
+        <nav id="botones">
+            <li id="bcap1" onclick="caratula(0)" disabled="disabled"></li>
+            <li id="bcap2" onclick="caratula(1)"></li>
+            <li id="bcap3" onclick="caratula(2)"></li>
+            <li id="bcap4" onclick="caratula(3)"></li>
+        </nav>
+        <script>
+            let pagina=0;
+            function caratula(page)
+            {
+                if(page!=pagina)
+                {
+                    console.log(pagina+" :lo que está");
+                    console.log(page);   
+
+
+                    
+                    obj= document.getElementById('capa'+page);
+                    setTimeout(() => {
+                        alfa=document.getElementById('capa'+pagina);
+                        alfa.style.opacity="0";
+                        alfa.classList.add('tamano');
+                        alfa.style.display="none";
+                        
+                        obj.style.display="flex";
+                        obj.style.opacity="1";
+                        obj.classList.remove('tamano');
+                        pagina=page;
+                    }, 500);
+
+                }
+                
+            }
+            function activa(){
+
+            }
+        </script>
+    </main>
+</body>
+</html>
